@@ -49,7 +49,8 @@ angular.module('slick', []).directive('slick', [
         variableWidth: '@',
         vertical: '@',
         prevArrow: '@',
-        nextArrow: '@'
+        nextArrow: '@',
+        respondTo:"@"
       },
       link: function (scope, element, attrs) {
         var destroySlick, initializeSlick, isInitialized;
@@ -114,7 +115,8 @@ angular.module('slick', []).directive('slick', [
               variableWidth: scope.variableWidth === 'true',
               vertical: scope.vertical === 'true',
               prevArrow: scope.prevArrow ? $(scope.prevArrow) : void 0,
-              nextArrow: scope.nextArrow ? $(scope.nextArrow) : void 0
+              nextArrow: scope.nextArrow ? $(scope.nextArrow) : void 0,
+    		  respondTo: scope.respondTo || "window"
             });
             slider.on('init', function (sl) {
               if (attrs.onInit) {
